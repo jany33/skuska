@@ -1,0 +1,7 @@
+create database cviko_3 with encoding='UTF-8';
+\c cviko_3 - pripojí ma k databáze
+create table ludia (id SERIAL PRIMARY KEY, meno VARCHAR(50), priezvisko VARCHAR(50))
+\dt -vypíše tabulku
+select * from ludia;
+insert into ludia (id, meno, priezvisko) VALUES(1,'janko', 'hrasko');
+
