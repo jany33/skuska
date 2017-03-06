@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>30</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Firma autobazar
+--
+&lt;PK&gt; názov VARCHAR(50)
+IČO INT
+DIČ INT
+adresa VARCHAR(50)
+majiteľ VARCHAR(50)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>40</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Pobočka
+--
+&lt;PK&gt; id pobočky INT
+meno vedúceho VARCHAR(50)
+adresa VARCHAR(50)
+&lt;FK&gt; ID_predajca</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>70</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>má pobočku</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>190</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Predajca
+--
+&lt;PK&gt; id predajcu INT
+meno VARCHAR(50)
+dátum nástupu DATETIME
+&lt;FK&gt; ID_Pobočka
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>190</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Dostupné auta na pobočke
+--
+&lt;FK&gt; ID_Pobočka
+&lt;FK&gt; ID_Auto</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>130</y>
+      <w>350</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>
+pracuje na</panel_attributes>
+    <additional_attributes>10.0;60.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>130</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>340</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>_Auto_
+--
+&lt;PK&gt; id auto INT
+VIN INT
+ŠPZ VARCHAR(10)
+cena INT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>250</y>
+      <w>110</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>sa nachádza</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>520</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Klient
+--
+&lt;PK&gt; Č.OP VARCHAR(8)
+meno VARCHAR(50)
+adresa VARCHAR(50)
+&lt;FK&gt; ID_Auto</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>280</y>
+      <w>60</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>tvorí </panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>430</y>
+      <w>190</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>kupuje</panel_attributes>
+    <additional_attributes>10.0;90.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>340</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Zmluva
+--
+&lt;PK&gt; ID číslo zmluvy INT
+cena INT
+&lt;FK&gt; ID_Predajca
+&lt;FK&gt; ID_Klient</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>430</y>
+      <w>190</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>podpisuje</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>330</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Servisný úkon
+--
+&lt;PK&gt; ID ukonu INT
+meno technika VARCHAR(50)
+dátum vykonania DATETIME
+&lt;FK&gt; ID_Pobočka 
+&lt;FK&gt; ID_Auto
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>370</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>150</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Vykonanie úkonu
+--
+&lt;FK&gt; ID_Pobočka
+&lt;FK&gt; ID_Servisný úkon</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>210</y>
+      <w>30</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>80</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>200.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
